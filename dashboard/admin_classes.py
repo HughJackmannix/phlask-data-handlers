@@ -178,6 +178,19 @@ class prod_admin:
                    pass
         except:
             pass
+
+    def get_food(ref, foodnum):
+        foods = prod_admin.get_db(ref)
+        try:
+            for food in foods:
+                try:
+                    if food['foodnum'] == foodnum:
+                        return food
+                except:
+                   pass
+        except:
+            pass
+
     def delete_tap(ref, tapnum):
         try:
             ref.child(str(tapnum)).delete()
